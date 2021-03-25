@@ -16,8 +16,8 @@ abstract class BaseActivity : AppCompatActivity() {
         initView(savedInstanceState)
     }
 
-    abstract fun initView(savedInstanceState: Bundle?)
-
     abstract fun setLayoutId(): Int
+
+    abstract fun initView(savedInstanceState: Bundle?)
 
 }

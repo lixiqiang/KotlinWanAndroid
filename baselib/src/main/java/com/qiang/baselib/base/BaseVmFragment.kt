@@ -5,19 +5,20 @@ import androidx.lifecycle.ViewModelProvider
 
 /**
  * @author lixiqiang
- * @date：2021/1/28 0028
+ * @date：2021/2/20 0020
  */
-abstract class BaseVmActivity<VM : BaseViewModel> : BaseActivity() {
+abstract class BaseVmFragment<VM : BaseViewModel> : BaseFragment() {
 
-    lateinit var viewModel: VM
+    lateinit var vm: VM
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        viewModel = createViewModel()
+        vm = createViewModel()
         super.onCreate(savedInstanceState)
-        createObserver()
+        setObserver()
     }
 
-    abstract fun createObserver()
-
     private fun createViewModel(): VM = ViewModelProvider(this).get(getVmClass(this))
+
+    abstract fun setObserver()
+
 }
